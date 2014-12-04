@@ -1,6 +1,4 @@
-package edu.marist.cmpt220l;
-
-import edu.marist.cmpt220l.events.Event;
+package edu.marist.cmpt220l.brackets;
 
 /**
  * Created by john on 12/3/2014.
@@ -16,7 +14,9 @@ public class Queue {
         }
     }
     public int dequeue(){
-        if (first ==null) throw Exception
+        if (first ==null){
+            System.out.println("Error removing teams");
+        }
         QueueItem currVal = first;
         first = first.next;
         return currVal.value;
