@@ -8,7 +8,7 @@ public abstract class Event {
     private int playTo;
     private boolean isPlayToExact;
     private int playDistance;
-
+    
     /**
      * Construct a new event, this should be called by whomever subclasses this class
      *
