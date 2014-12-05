@@ -26,7 +26,10 @@ public class CompetitionManager {
     {
         this.em = em;
         this.tm = tm;
+        //peak next teams, get next teams
     }
+    public void StartFreeEvents(){}
+
 
     /**
      * Start a new competition, this competition will exist until endCompetition is called

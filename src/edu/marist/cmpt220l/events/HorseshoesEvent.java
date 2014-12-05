@@ -1,5 +1,7 @@
 package edu.marist.cmpt220l.events;
 
+import edu.marist.cmpt220l.teams.Team;
+
 /**
  * The Horseshoes event
  */
@@ -9,8 +11,7 @@ public class HorseshoesEvent extends Event {
     /**
      * Construct a horseshoes object
      */
-    public HorseshoesEvent() {
-        super("Horseshoes", 11, false, 40);
+    public HorseshoesEvent(Team[] teams) {super("Horseshoes", 11, false, 40, teams);
     }
 
     /**

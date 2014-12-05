@@ -12,13 +12,11 @@ public class Queue {
         Queue newQueue = new Queue();
         newQueue.enqueue(new Team(new Olympian("John", Sex.MALE,17),new Olympian("Jacob", Sex.MALE,17)));
         newQueue.enqueue(new Team(new Olympian("Geoff", Sex.MALE,17),new Olympian("George", Sex.MALE,17)));
+        newQueue.enqueue(new Team(new Olympian("greg", Sex.MALE,17),new Olympian("George", Sex.MALE,17)));
+        newQueue.enqueue(new Team(new Olympian("bult", Sex.MALE,17),new Olympian("George", Sex.MALE,17)));
+        newQueue.enqueue(new Team(new Olympian("chad", Sex.MALE,17),new Olympian("George", Sex.MALE,17)));
         System.out.println(newQueue.first.value);
         System.out.println(newQueue.last.value);
-        newQueue.dequeue();
-        System.out.println(newQueue.first.value);
-        System.out.println(newQueue.last.value);
-        newQueue.dequeue();
-        newQueue.dequeue();
     }
     private QueueItem first;
     private QueueItem last;

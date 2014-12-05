@@ -1,5 +1,7 @@
 package edu.marist.cmpt220l.events;
 
+import edu.marist.cmpt220l.teams.Team;
+
 /**
  * The CanJam event
  */
@@ -10,8 +12,8 @@ public class CanJamEvent extends Event {
     /**
      * Construct a new CanJam event
      */
-    public CanJamEvent() {
-        super("Can Jam", 21, true, 50);
+    public CanJamEvent(Team[] teams) {
+        super("Can Jam", 21, true, 50, teams);
     }
 
     /**

@@ -1,5 +1,8 @@
 package edu.marist.cmpt220l.events;
 
+import edu.marist.cmpt220l.brackets.Queue;
+import edu.marist.cmpt220l.teams.Team;
+
 /**
  * An abstract event that can be played by olympians
  */
@@ -8,7 +11,8 @@ public abstract class Event {
     private int playTo;
     private boolean isPlayToExact;
     private int playDistance;
-    
+    private Queue queue = new Queue();
+
     /**
      * Construct a new event, this should be called by whomever subclasses this class
      *
@@ -17,11 +21,16 @@ public abstract class Event {
      * @param isPlayToExact whether the number of points to play to must be exactly hit
      * @param playDistance the distance between the two areas of play
      */
-    public Event(String name, int playTo, boolean isPlayToExact, int playDistance) {
+    public Event(String name, int playTo, boolean isPlayToExact, int playDistance, Team[] teams) {
         this.name = name;
         this.playTo = playTo;
         this.isPlayToExact = isPlayToExact;
         this.playDistance = playDistance;
+        System.out.println(name);
+        for (int i=0;i<teams.length;i++) {
+            queue.enqueue(teams[i]);
+            System.out.println("Adding team " + teams[i]);
+        }
     }
 
     /**

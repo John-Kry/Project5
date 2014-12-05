@@ -1,5 +1,7 @@
 package edu.marist.cmpt220l.events;
 
+import edu.marist.cmpt220l.teams.Team;
+
 /**
  * The Ladder Ball event
  */
@@ -9,8 +11,8 @@ public class LadderBallEvent extends Event {
     /**
      * Construct the ladder ball event
      */
-    public LadderBallEvent() {
-        super("Ladder Ball", 21, true, 15);
+    public LadderBallEvent(Team[] teams) {
+        super("Ladder Ball", 21, true, 15, teams);
     }
 
     /**

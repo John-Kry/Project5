@@ -36,7 +36,7 @@ public class Main {
     {
         om = new OlympianManager(filePath);
         tm = new TeamManager(om);
-        em = new EventManager();
+        em = new EventManager(tm);
         cm = new CompetitionManager(em, tm);
     }
 
