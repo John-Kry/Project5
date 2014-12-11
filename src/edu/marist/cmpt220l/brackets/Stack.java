@@ -18,6 +18,10 @@ public class Stack {
         System.out.println(newStack.top.value);
         newStack.pop();
         System.out.println(newStack.top.value);
+        newStack.push(new Team(new Olympian("Gross", Sex.MALE, 17), new Olympian("Annoy", Sex.MALE, 17)));
+        System.out.println(newStack.top.value);
+        newStack.pop();
+        System.out.println(newStack.top.value);
     }
     public Team pop(){
         if (top == null){
@@ -31,7 +35,8 @@ public class Stack {
     public void push(Team team){
         StackItem newTeam = new StackItem(team);
         if (top != null){
-            top.down = top;
+            top.down = newTeam;
+            newTeam.down = top;
             top = newTeam;
         }else{
             top = newTeam;

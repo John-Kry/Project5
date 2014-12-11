@@ -29,6 +29,8 @@ public abstract class Event {
         for (int i=0;i<teams.length;i++) {
             queue.enqueue(teams[i]);
         }
+        Team[] x =queue.GetNextTeams();
+
     }
 
     /**

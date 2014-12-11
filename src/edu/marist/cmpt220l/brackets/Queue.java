@@ -11,6 +11,8 @@ public class Queue {
 
     private QueueItem first;
     private QueueItem last;
+    Stack placing = new Stack();
+
     public void enqueue(Team team){
         QueueItem newTeam = new QueueItem(team);
         if (last!=null){
@@ -29,5 +31,18 @@ public class Queue {
         QueueItem currTeam = first;
         first = first.next;
         return currTeam.value;
+    }
+    public Team[] PeakNextTeams(){
+        Team[] a = {first.value,first.next.value};
+        return (a);
+    }
+    public Team[] GetNextTeams(){
+        dequeue();
+        dequeue();
+        return PeakNextTeams();
+    }
+    public void ReturnTeams(Team winner, Team loser){
+        enqueue(winner);
+        placing.push(loser);
     }
 }
