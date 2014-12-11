@@ -1,6 +1,10 @@
 package edu.marist.cmpt220l.events;
 
 import edu.marist.cmpt220l.brackets.Queue;
+import edu.marist.cmpt220l.brackets.Stack;
+import edu.marist.cmpt220l.competitions.Competition;
+import edu.marist.cmpt220l.competitions.CompetitionManager;
+import edu.marist.cmpt220l.competitions.ICompetition;
 import edu.marist.cmpt220l.teams.Team;
 
 /**
@@ -12,6 +16,7 @@ public abstract class Event {
     private boolean isPlayToExact;
     private int playDistance;
     private Queue queue = new Queue();
+    private Stack losers = new Stack();
 
     /**
      * Construct a new event, this should be called by whomever subclasses this class
@@ -29,8 +34,6 @@ public abstract class Event {
         for (int i=0;i<teams.length;i++) {
             queue.enqueue(teams[i]);
         }
-        Team[] x =queue.GetNextTeams();
-
     }
 
     /**
@@ -110,5 +113,18 @@ public abstract class Event {
      */
     public void setPlayDistance(int playDistance) {
         this.playDistance = playDistance;
+    }
+    public Team[] PeakNextTeams(){
+        Team[] a = {queue.getFirst().value,queue.getFirst().next.value};
+        return (a);
+    }
+    public Team[] GetNextTeams(){
+        queue.dequeue();
+        queue.dequeue();
+        return PeakNextTeams();
+    }
+    public void ReturnTeams(Team winner, Team loser){
+        queue.enqueue(winner);
+        losers.push(loser);
     }
 }

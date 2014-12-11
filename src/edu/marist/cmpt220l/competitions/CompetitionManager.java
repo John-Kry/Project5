@@ -29,6 +29,10 @@ public class CompetitionManager {
         //peak next teams, get next teams
     }
     public void StartFreeEvents(){}
+    public void initialRun(Event event){
+        Team[] teams = event.GetNextTeams();
+        this.startCompetition(event, teams[0], teams[1]);
+    }
 
 
     /**
@@ -82,8 +86,11 @@ public class CompetitionManager {
      * @param competition the competition to end
      * @param winningTeam the team that won the competition
      */
-    public void endCompetition(ICompetition competition, Team winningTeam)
+    public void endCompetition(ICompetition competition, Team winningTeam, Team losingTeam)
     {
+
+        startCompetition(competition.getEvent(), competition.getEvent().GetNextTeams()[0], competition.getEvent().GetNextTeams()[1]);
+        competition.getEvent().ReturnTeams(winningTeam,losingTeam);
         Competition currItem = head;
 
         //find the item (or find the end of the list
