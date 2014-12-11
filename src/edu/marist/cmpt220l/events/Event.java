@@ -115,12 +115,14 @@ public abstract class Event {
         this.playDistance = playDistance;
     }
     public Team[] PeakNextTeams(){
+     //   System.out.println(queue.count());
         Team[] a = {queue.getFirst().value,queue.getFirst().next.value};
         return (a);
     }
     public Team[] GetNextTeams(){
         queue.dequeue();
         queue.dequeue();
+        //Need to add validator for 2 or less teams
         return PeakNextTeams();
     }
     public void ReturnTeams(Team winner, Team loser){
