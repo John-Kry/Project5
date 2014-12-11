@@ -26,10 +26,8 @@ public abstract class Event {
         this.playTo = playTo;
         this.isPlayToExact = isPlayToExact;
         this.playDistance = playDistance;
-        System.out.println(name);
         for (int i=0;i<teams.length;i++) {
             queue.enqueue(teams[i]);
-            System.out.println("Adding team " + teams[i]);
         }
     }
 
