@@ -88,9 +88,6 @@ public class CompetitionManager {
      */
     public void endCompetition(ICompetition competition, Team winningTeam, Team losingTeam)
     {
-
-        startCompetition(competition.getEvent(), competition.getEvent().GetNextTeams()[0], competition.getEvent().GetNextTeams()[1]);
-        competition.getEvent().ReturnTeams(winningTeam,losingTeam);
         Competition currItem = head;
 
         //find the item (or find the end of the list
@@ -123,6 +120,9 @@ public class CompetitionManager {
             currItem.getHomeTeam().incrementLosses();
             currItem.getAwayTeam().incrementWins();
         }
+        competition.getEvent().ReturnTeams(winningTeam,losingTeam);
+        Team[] teams = competition.getEvent().GetNextTeams();
+        startCompetition(competition.getEvent(), teams[0], teams[1]);
     }
 
     /**

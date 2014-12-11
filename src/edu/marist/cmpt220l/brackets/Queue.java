@@ -11,6 +11,7 @@ public class Queue {
 
     private QueueItem first;
     private QueueItem last;
+    private int count;
     public QueueItem getFirst(){
 
         return first;
@@ -25,6 +26,7 @@ public class Queue {
             first = newTeam;
             last = newTeam;
         }
+        count++;
     }
     public Team dequeue(){
         if (first == null){
@@ -33,6 +35,10 @@ public class Queue {
         }
         QueueItem currTeam = first;
         first = first.next;
+        count--;
         return currTeam.value;
+    }
+    public int count(){
+        return this.count;
     }
 }
